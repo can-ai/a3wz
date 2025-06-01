@@ -1,4 +1,8 @@
 FROM nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04
+
+ARG HF_TOKEN
+ENV HF_TOKEN=${HF_TOKEN}
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 
