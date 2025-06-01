@@ -1,0 +1,7 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'docker.io/can9ai/comfy-with-wan2.1-cnet:latest', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'docker.io/can9ai/comfy-with-wan2.1-cnet/comfy-with-wan2.1-cnet:latest']
+images:
+  - 'docker.io/can9ai/comfy-with-wan2.1-cnet:latest'
