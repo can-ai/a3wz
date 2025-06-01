@@ -13,9 +13,11 @@ jobs:
         run: |
           echo "DOCKER_USERNAME is set: ${DOCKER_USERNAME:+yes}"
           echo "DOCKER_PASSWORD is set: ${DOCKER_PASSWORD:+yes}"
+          echo "HF_TOKEN is set: ${HF_TOKEN:+yes}"
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -29,3 +31,5 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/comfy-with-wan2.1-cnet:latest
+          build-args: |
+            HF_TOKEN=${{ secrets.HF_TOKEN }}
